@@ -20,7 +20,7 @@ const getComment = async (req, res) => {
 
     res.json(result.rows[0]);
   } catch (error) {
-    res.status(500).json({ error: "error" });
+    res.status(500).json({ error: error });
   }
 };
 
