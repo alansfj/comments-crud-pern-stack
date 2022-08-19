@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+.App {
+  min-height: 100vh;
+}
+
+.App {
+  background-color: #eee;
+  padding-bottom: 3rem;
+}
