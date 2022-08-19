@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-
+const path = require('path')
 const {
   getAllComments,
   getComment,
@@ -10,11 +10,12 @@ const {
   deleteComment,
 } = require("./controllers/comments.controllers");
 
-const port = 3100;
+const PORT = process.env.PORT || 3100
 
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, "client/build")))
 
 app.get("/comments", getAllComments);
 
@@ -26,6 +27,6 @@ app.put("/comments/:id", editComment);
 
 app.delete("/comments/:id", deleteComment);
 
-app.listen(port, () => {
-  console.log(`server listen on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`server listen on port ${PORT}`);
 });

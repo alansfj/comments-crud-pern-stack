@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     (async () => {
       try {
-        const data = await fetch("http://localhost:3100/comments/");
+        const data = await fetch("/comments");
 
         const json = await data.json();
 
@@ -31,7 +31,7 @@ function App() {
   }, []);
 
   const postComment = async formObj => {
-    const data = await fetch("http://localhost:3100/comments/", {
+    const data = await fetch("/comments", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -53,7 +53,7 @@ function App() {
   };
 
   const updateComment = async formObj => {
-    const data = await fetch(`http://localhost:3100/comments/${form.id}`, {
+    const data = await fetch(`/comments/${form.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -76,7 +76,7 @@ function App() {
 
   const deleteComment = async id => {
     try {
-      const data = await fetch(`http://localhost:3100/comments/${id}`, {
+      const data = await fetch(`/comments/${id}`, {
         method: "DELETE",
       });
 
